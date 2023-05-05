@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ParkingSpotService {
@@ -23,6 +24,11 @@ public class ParkingSpotService {
 
     public List<ParkingSpotModel> findAll(){
         return parkingSpotRepository.findAll();
+    }
+
+    public Optional<ParkingSpotModel> findById(Long id)
+    {
+        return parkingSpotRepository.findById(id);
     }
 
     public boolean existsByLicensePlateCar(String licensePlateCar) {
